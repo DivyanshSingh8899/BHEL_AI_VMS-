@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Start-Sleep -Seconds 3; \\(Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 10 -ErrorAction SilentlyContinue\\).StatusCode)",
+      "PowerShell(curl.exe -s -o NUL -w \"%{http_code}\" \"http://localhost:3000/signup\")"
+    ]
+  }
+}

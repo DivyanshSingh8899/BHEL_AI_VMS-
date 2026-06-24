@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Auth Inject</title></head>
+<body>
+<script>
+  const token = new URLSearchParams(location.search).get('token');
+  const role  = new URLSearchParams(location.search).get('role') || 'admin';
+  const name  = new URLSearchParams(location.search).get('name') || 'BHEL Admin';
+  const uid   = new URLSearchParams(location.search).get('uid') || '1';
+
+  if (token) {
+    // Set cookies
+    document.cookie = `access_token=${token};path=/;max-age=28800`;
+    document.cookie = `refresh_token=${token};path=/;max-age=604800`;
+
+    // Set zustand persisted auth store
+    const authState = {
+      state: {
+        user: { id: parseInt(uid), username: 'admin', full_name: name, email: 'admin@bhel.com', role },
+        isAuthenticated: true
+      },
+      version: 0
+    };
+    localStorage.setItem('bhel-auth', JSON.stringify(authState));
+
+    const redirect = new URLSearchParams(location.search).get('to') || '/dashboard';
+    window.location.href = redirect;
+  } else {
+    document.body.innerHTML = '<p>No token provided.</p>';
+  }
+</script>
+</body>
+</html>

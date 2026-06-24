@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Database
+*.db
+*.sqlite3
+backend/dev.db
+backend/bhel_vms.db
+
+# Environment files (keep .env.example, ignore actual .env)
+backend/.env
+frontend/.env.local
+
+# Uploads & generated files
+backend/uploads/
+backend/logs/
+
+# Node
+node_modules/
+frontend/.next/
+frontend/out/
+
+# Docker volumes
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Report generator script (temp)
+generate_report.js
+gen_report_30p.js
+pdf_to_img.py
+
+# Preview/screenshot temp files
+website_screenshots/
+report_preview/
+
+# Secrets
+*.pem
+*.key
+nginx/ssl/
+
+# Misc
+*.tmp
+token.txt
