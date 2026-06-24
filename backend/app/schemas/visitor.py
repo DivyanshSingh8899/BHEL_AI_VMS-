@@ -98,3 +98,16 @@ class RecognitionResponse(BaseModel):
     message: str
     entry_time: Optional[str] = None
     log_id: Optional[str] = None
+
+
+class LivenessRequest(BaseModel):
+    image: str  # base64-encoded image (data URL or raw base64)
+
+
+class LivenessResponse(BaseModel):
+    is_live: bool
+    confidence: float
+    blink_detected: bool
+    texture_score: float
+    reflection_score: float
+    message: str
