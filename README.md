@@ -281,3 +281,5 @@ Copy `backend/.env.example` → `backend/.env` and set:
 
 Proprietary — BHEL Varanasi Internal Use Only  
 © 2026 Bharat Heavy Electricals Limited, Varanasi
+
+Contributors: Divyansh Singh
