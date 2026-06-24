@@ -72,6 +72,14 @@ class FaceEnrollRequest(BaseModel):
     visitor_id: str
     images: List[str]   # list of base64-encoded face images
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "visitor_id": "BHEL-VST-2026-0001",
+                "images": ["data:image/jpeg;base64,..."]
+            }
+        }
+
 
 class FaceEnrollResponse(BaseModel):
     success: bool
