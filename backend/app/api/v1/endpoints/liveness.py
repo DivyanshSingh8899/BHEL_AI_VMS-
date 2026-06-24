@@ -3,6 +3,9 @@ import base64
 import numpy as np
 from app.ai.liveness.detector import analyze_static_image
 from app.schemas.visitor import LivenessRequest, LivenessResponse
+import logging
+
+logger = logging.getLogger(__name__)
 try:
     import cv2
     CV2 = True
@@ -19,6 +22,7 @@ async def analyze(payload: LivenessRequest):
     if not img_b64:
         raise HTTPException(status_code=400, detail="No image provided")
 
+    logger.debug("Received liveness analyze request (image size approx): %d", len(img_b64) if img_b64 else 0)
     # strip data url prefix if present
     if img_b64.startswith("data:"):
         try:
