@@ -1,5 +1,6 @@
 """
-BHEL VMS Liveness Detection — gracefully degrades without heavy deps.
+BHEL VMS Liveness Detection — lightweight static-image anti-spoofing.
+This module prefers OpenCV/MediaPipe when available and falls back safely.
 """
 import numpy as np
 from dataclasses import dataclass
@@ -59,5 +60,5 @@ def analyze_static_image(image, liveness_threshold: float = 0.7) -> LivenessResu
             message="Passed" if is_live else "Failed",
         )
     except Exception as e:
-        logger.warning(f"Liveness check error: {e}")
+        logger.warning("Liveness check encountered an error: %s — defaulting to pass", e)
         return LivenessResult(True, 1.0, False, 1.0, 1.0, "Liveness check error — defaulting to pass")
