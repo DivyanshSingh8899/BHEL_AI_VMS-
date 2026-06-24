@@ -68,7 +68,7 @@ export default function FaceUploadPage() {
           <input
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
-            placeholder="Enter target user id (numeric)"
+            placeholder="Enter target user id (e.g., BHEL-VST-2026-0001)"
             className="w-full px-3 py-2 border rounded mb-3"
           />
 
@@ -84,7 +84,7 @@ export default function FaceUploadPage() {
             </button>
           </div>
 
-          <p className="text-sm text-gray-500 mt-3">Note: This requires admin privileges.</p>
+          <p className="text-sm text-gray-500 mt-3">Note: This requires admin privileges. Use this to update staff/visitor face photos.</p>
         </div>
       </div>
     </div>
