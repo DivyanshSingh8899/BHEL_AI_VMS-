@@ -55,6 +55,11 @@ export const adminApi = {
   uploadUserPhoto: (userId: number | string, formData: FormData) => api.post(`/auth/users/${userId}/photo`, formData),
 }
 
+// Misc helpers
+export const miscApi = {
+  ping: () => api.get('/ping'),
+}
+
 // Visitors
 export const visitorApi = {
   register: (data: any) => api.post('/visitors/register', data),
